@@ -1,6 +1,5 @@
 <script>
 export default {
-    name: "",
     data() {
         return {
 
@@ -13,9 +12,15 @@ export default {
 </script>
 
 <template>
-    <div class="">
-
-    </div>
+    <nav class="navbar bg-body-tertiary">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                YO-Gi-Oh API
+            </a>
+        </div>
+    </nav>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped>
+@use "../node_modules/bootstrap/scss/bootstrap"
+</style>

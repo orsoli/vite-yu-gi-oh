@@ -1,11 +1,22 @@
 <script>
+// Import components
+import AppHeader from './components/AppHeader.vue';
+import AppMain from './components/AppMain.vue';
+
+
+
+
 export default {
-  name: "",
   data() {
     return {
 
     };
   },
+  components: {
+    AppHeader,
+    AppMain
+  },
+
   methods: {
 
   }
@@ -13,9 +24,7 @@ export default {
 </script>
 
 <template>
-  <div>
-
-  </div>
+  <AppHeader />
 </template>
 
 <style scoped></style>
