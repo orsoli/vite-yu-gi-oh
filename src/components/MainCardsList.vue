@@ -20,15 +20,18 @@ export default {
     },
     methods: {
         getCardsList() {
-            axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=39&offset=0').then((response) => {
+            axios.get(this.store.apiUrl).then((response) => {
                 // console.log(response.data.data) // Test printing in console
                 this.store.cardsList = response.data.data
                 console.dir(this.store.cardsList) // Test print in console
             })
         }
     },
-    mounted() {
-        this.getCardsList()
+    created() {
+        // Call function after 2 seconds
+        setTimeout(() => {
+            this.getCardsList()
+        }, 2000)
     }
 };
 </script>

@@ -5,7 +5,6 @@ import AppMain from './components/AppMain.vue';
 
 
 
-
 export default {
   data() {
     return {
@@ -14,7 +13,7 @@ export default {
   },
   components: {
     AppHeader,
-    AppMain
+    AppMain,
   },
 
   methods: {

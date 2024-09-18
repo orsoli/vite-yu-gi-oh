@@ -1,6 +1,7 @@
 <script>
 //Import Components
 import MainCardsList from './MainCardsList.vue';
+import AppLoader from './AppLoader.vue';
 
 //Import Store
 import { store } from "../store"
@@ -15,6 +16,7 @@ export default {
 
     components: {
         MainCardsList,
+        AppLoader
     },
 
     methods: {
@@ -24,6 +26,7 @@ export default {
 </script>
 
 <template>
+    <AppLoader v-if="store.cardsList.length === 0" />
     <main class="p-5">
         <div class="container">
             <header>
