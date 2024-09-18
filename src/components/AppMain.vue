@@ -2,11 +2,14 @@
 //Import Components
 import MainCardsList from './MainCardsList.vue';
 
+//Import Store
+import { store } from "../store"
+
 
 export default {
     data() {
         return {
-
+            store
         };
     },
 
@@ -24,7 +27,7 @@ export default {
     <main class="p-5">
         <div class="container">
             <header>
-                Founded 39 cards
+                <h5>Found {{ store.cardsList.length }} cards</h5>
             </header>
             <MainCardsList />
         </div>
