@@ -23,7 +23,7 @@ export default {
             axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=39&offset=0').then((response) => {
                 // console.log(response.data.data) // Test printing in console
                 this.store.cardsList = response.data.data
-                console.log(this.store.cardsList[0].card_images[0].image_url) // Test print in console
+                console.dir(this.store.cardsList) // Test print in console
             })
         }
     },
@@ -34,8 +34,13 @@ export default {
 </script>
 
 <template>
-    <MainCard v-for="card in store.cardsList" :key="card.id" :cardName="card.name"
-        :cardImage="card.card_images[0].image_url" :cardArchetype="card.archetype" />
+    <div class="row row-cols-3 row-cols-md-5 g-2">
+        <MainCard v-for="card in store.cardsList" :key="card.id" :cardName="card.name"
+            :cardImage="card.card_images[0].image_url" :cardArchetype="card.archetype" />
+    </div>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped>
+@use "/node_modules/bootstrap/scss/bootstrap.scss";
+@use "/styles/generics.scss" as *;
+</style>

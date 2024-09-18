@@ -15,7 +15,7 @@ export default {
             required: true,
         },
         cardArchetype: {
-            type: String,
+            // type: String, 
             required: true,
         },
     },
@@ -27,19 +27,27 @@ export default {
 </script>
 
 <template>
-    <main>
-        <div class="card" style="width: 18rem;">
+    <div class="col">
+        <div class="card text-center" id="card">
             <img :src="cardImage" class="card-img-top" :alt="cardName">
             <div class="card-body">
-                <h5 class="card-title">{{ cardName }}</h5>
-                <p class="card-text">{{ cardArchetype }}</p>
+                <h5 class="card-title fs-6 mt-0">{{ cardName }}</h5>
+                <p class="card-text mb-1">{{ cardArchetype }}</p>
             </div>
         </div>
-    </main>
+    </div>
 </template>
 
 <style lang="scss" scoped>
-main {
+@use "/node_modules/bootstrap/scss/bootstrap.scss";
+@use "/styles/generics.scss" as *;
+
+
+
+#card {
+    background-color: #D48F3C;
+    height: 400px;
+
     h5 {
         color: white;
     }
