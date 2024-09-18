@@ -1,5 +1,15 @@
-<script setup>
+<script>
+export default {
+  name: "",
+  data() {
+    return {
 
+    };
+  },
+  methods: {
+
+  }
+};
 </script>
 
 <template>
