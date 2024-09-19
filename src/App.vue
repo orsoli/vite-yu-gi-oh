@@ -27,4 +27,7 @@ export default {
   <AppMain />
 </template>
 
-<style scoped></style>
+<style lang="scss">
+@use "/node_modules/bootstrap/scss/bootstrap.scss";
+@use "/styles/generics.scss" as *;
+</style>

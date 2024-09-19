@@ -15,7 +15,7 @@ export default {
             required: true,
         },
         cardArchetype: {
-            // type: String, 
+            type: String,
             required: true,
         },
     },
@@ -39,11 +39,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@use "/node_modules/bootstrap/scss/bootstrap.scss";
-@use "/styles/generics.scss" as *;
-
-
-
 #card {
     background-color: #D48F3C;
     height: 400px;

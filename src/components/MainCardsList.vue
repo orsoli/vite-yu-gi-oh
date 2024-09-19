@@ -43,7 +43,4 @@ export default {
     </div>
 </template>
 
-<style lang="scss" scoped>
-@use "/node_modules/bootstrap/scss/bootstrap.scss";
-@use "/styles/generics.scss" as *;
-</style>
+<style lang="scss" scoped></style>

@@ -31,6 +31,11 @@ export default {
         <div class="container">
             <header>
                 <h5>Found {{ store.cardsList.length }} cards</h5>
+                <select class="form-select w-25 my-2">
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
             </header>
             <MainCardsList />
         </div>
@@ -38,8 +43,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@use "/node_modules/bootstrap/scss/bootstrap.scss";
-
 main {
     background-color: #D48F3C;
 
