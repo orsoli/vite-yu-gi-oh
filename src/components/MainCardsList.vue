@@ -14,7 +14,12 @@ export default {
             store
         };
     },
-
+    props: {
+        selectedValue: {
+            type: String,
+            required: false
+        }
+    },
     components: {
         MainCard
     },
@@ -31,6 +36,7 @@ export default {
         // Call function after 2 seconds
         setTimeout(() => {
             this.getCardsList()
+            this.$emit('getArchetypes') // In created moment emit getArchetypes customized event on AppMain in MainCardsList component
         }, 2000)
     }
 };

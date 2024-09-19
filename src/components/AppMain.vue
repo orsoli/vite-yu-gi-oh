@@ -14,7 +14,8 @@ export default {
             store,
             // Variables
             archetypesUrl: "https://db.ygoprodeck.com/api/v7/archetypes.php",
-            archetypesList: [] // Save archetypes get from api
+            archetypesList: [], // Save archetypes get from api
+            selectedArchetype: "" // Save selcted value
         };
     },
 
@@ -34,11 +35,6 @@ export default {
             })
         }
     },
-
-    mounted() {
-        this.getArchetypes()
-    }
-
 };
 </script>
 
@@ -48,15 +44,15 @@ export default {
         <div class="container">
             <header>
                 <h5>Found {{ store.cardsList.length }} cards</h5>
-                <select class="form-select w-25 my-2">
-                    <option value="" selected>Archetype</option>
+                <select class="form-select w-25 my-2" v-model="selectedArchetype">
+                    <option disabled value="" selected>Archetype</option>
                     <option v-for="(archetype, i) in this.archetypesList" :key="i"
                         :archetupeName="archetype.archetype_name" :value="archetype.archetype_name">{{
                             archetype.archetype_name }}
                     </option>
                 </select>
             </header>
-            <MainCardsList />
+            <MainCardsList @get-archetypes="getArchetypes" :selectedValue="selectedArchetype" />
         </div>
     </main>
 </template>
