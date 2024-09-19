@@ -15,7 +15,7 @@ export default {
             required: true,
         },
         cardArchetype: {
-            type: String,
+            // type: String,
             required: true,
         },
     },

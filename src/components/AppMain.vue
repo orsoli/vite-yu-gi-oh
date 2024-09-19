@@ -5,12 +5,16 @@ import AppLoader from './AppLoader.vue';
 
 //Import Store
 import { store } from "../store"
+import axios from 'axios';
 
 
 export default {
     data() {
         return {
-            store
+            store,
+            // Variables
+            archetypesUrl: "https://db.ygoprodeck.com/api/v7/archetypes.php",
+            archetypesList: [] // Save archetypes get from api
         };
     },
 
@@ -20,8 +24,21 @@ export default {
     },
 
     methods: {
+        getArchetypes() {
+            axios.get(this.archetypesUrl, {
+                params: {
+                }
+            }).then(response => {
+                this.archetypesList = response.data // Save the archetype ocjects in this archetypesList
+                console.dir(this.archetypesList) // Test log print
+            })
+        }
+    },
 
+    mounted() {
+        this.getArchetypes()
     }
+
 };
 </script>
 
@@ -32,9 +49,11 @@ export default {
             <header>
                 <h5>Found {{ store.cardsList.length }} cards</h5>
                 <select class="form-select w-25 my-2">
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="" selected>Archetype</option>
+                    <option v-for="(archetype, i) in this.archetypesList" :key="i"
+                        :archetupeName="archetype.archetype_name" :value="archetype.archetype_name">{{
+                            archetype.archetype_name }}
+                    </option>
                 </select>
             </header>
             <MainCardsList />
