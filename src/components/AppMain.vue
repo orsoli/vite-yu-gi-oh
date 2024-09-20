@@ -15,7 +15,7 @@ export default {
             // Variables
             archetypesUrl: "https://db.ygoprodeck.com/api/v7/archetypes.php",
             archetypesList: [], // Save archetypes get from api
-            selectedArchetype: "" // Save selcted value
+            selectedArchetype: "", // Save selcted value
         };
     },
 
@@ -30,7 +30,22 @@ export default {
                 params: {
                     num: 40,
                     offset: 0,
-                    archetype: this.selectedArchetype
+                }
+            }
+            ).then((response) => {
+                // console.log(response.data.data) // Test printing in console
+                this.store.cardsList = response.data.data
+                console.dir(this.store.cardsList) // Test print in console
+            })
+        },
+
+        onChangeCardList() {
+
+            axios.get(this.store.apiUrl, {
+                params: {
+                    num: 40,
+                    offset: 0,
+                    archetype: this.selectedArchetype,
                 }
             }
             ).then((response) => {
@@ -48,8 +63,12 @@ export default {
                 this.archetypesList = response.data // Save the archetype ocjects in this archetypesList
                 console.dir(response) // Test log print
             })
-        }
+        },
+
     },
+    created() {
+        this.getCardsList()
+    }
 };
 </script>
 
@@ -59,8 +78,8 @@ export default {
         <div class="container">
             <header>
                 <h5>Found {{ store.cardsList.length }} cards</h5>
-                <select class="form-select w-25 my-2" v-model="selectedArchetype" @change="this.getCardsList()">
-                    <option disabled value="" selected>Archetype</option>
+                <select class="form-select w-25 my-2" v-model="selectedArchetype" @change="this.onChangeCardList()">
+                    <option value="" disabled selected>Archetype</option>
                     <option v-for="(archetype, i) in this.archetypesList" :key="i"
                         :archetupeName="archetype.archetype_name" :value="archetype.archetype_name">{{
                             archetype.archetype_name }}
