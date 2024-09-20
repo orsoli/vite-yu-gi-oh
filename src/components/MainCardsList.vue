@@ -24,20 +24,10 @@ export default {
         MainCard
     },
     methods: {
-        getCardsList() {
-            axios.get(this.store.apiUrl).then((response) => {
-                // console.log(response.data.data) // Test printing in console
-                this.store.cardsList = response.data.data
-                console.dir(this.store.cardsList) // Test print in console
-            })
-        }
     },
+
     created() {
-        // Call function after 2 seconds
-        setTimeout(() => {
-            this.getCardsList()
-            this.$emit('getArchetypes') // In created moment emit getArchetypes customized event on AppMain in MainCardsList component
-        }, 2000)
+        this.$emit('getArchetypes') // In created moment emit getArchetypes customized event on AppMain in MainCardsList component
     }
 };
 </script>
